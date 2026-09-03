@@ -1,12 +1,17 @@
 import wollok.game.*
 import direcciones.*
+import silvestre.*
 object pepita {
 
 	var property energia = 100 //El getter y setter solo lo necesito para testear
 	var position = game.origin()
 
 	method image() { //metodo necesario para wollok game
-		return "pepita.png"
+		if(self.position()==silvestre.position()){
+			return "pepita-gris.png"
+		}else{
+			return "pepita.png"
+		}
 	}
 
 	method position() { //metodo necesario para wollok game
@@ -17,6 +22,9 @@ object pepita {
 		position = _position 
 	}
 
+	method gastarEnergia(){
+		energia= energia - 9
+	}
 	 
     method validarPosicion(posicion_){
         if (not direcciones.estaEnElTablero(posicion_)) {
@@ -26,23 +34,27 @@ object pepita {
      method moverIzq(){
         const nuevaPosicion = position.left(1)
         self.validarPosicion(nuevaPosicion)
+		self.gastarEnergia()
         position=nuevaPosicion
     }
 
     method moverDer(){
         const nuevaPosicion = position.right(1)
         self.validarPosicion(nuevaPosicion)
+		self.gastarEnergia()
         position=nuevaPosicion
 
     }
        method moverAbajo(){
         const nuevaPosicion = position.down(1)
         self.validarPosicion(nuevaPosicion)
+		self.gastarEnergia()
         position=nuevaPosicion
     }
        method moverArriba(){
         const nuevaPosicion = position.up(1)
         self.validarPosicion(nuevaPosicion)
+		self.gastarEnergia()
         position=nuevaPosicion
     }
 	/*
@@ -82,6 +94,14 @@ object pepita {
 	}
 	
 	*/
+	method comer(comida){
+		if(self.position()==comida.position()){
+			self.adquirirEnergia(comida)
+		}
+	}
 
+	method adquirirEnergia(comida){
+		energia=energia + comida.energia()
+	}
 }
 

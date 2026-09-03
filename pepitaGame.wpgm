@@ -10,8 +10,8 @@ program PepitaGame {
 	game.width(10)
 	game.boardGround("fondo2.jpg")
 	game.addVisual(alpiste)
-	game.addVisual(pepita)
 	game.addVisual(silvestre)
+	game.addVisual(pepita)
 	direcciones.movimientos(pepita)
 	
 	
