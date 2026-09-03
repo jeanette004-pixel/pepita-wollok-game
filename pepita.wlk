@@ -7,11 +7,18 @@ object pepita {
 	var position = game.origin()
 
 	method image() { //metodo necesario para wollok game
-		if(self.position()==silvestre.position()){
+		if(self.estaConSilvestre()|| self.estaCansada()){
 			return "pepita-gris.png"
 		}else{
 			return "pepita.png"
 		}
+	}
+
+	method estaCansada(){
+		return energia<1
+	}
+	method estaConSilvestre(){
+		return self.position()==silvestre.position()
 	}
 	 method text() = self.energia().toString()
 	method position() { //metodo necesario para wollok game
