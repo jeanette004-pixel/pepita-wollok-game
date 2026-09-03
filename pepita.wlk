@@ -1,5 +1,5 @@
 import wollok.game.*
-
+import direcciones.*
 object pepita {
 
 	var property energia = 100 //El getter y setter solo lo necesito para testear
@@ -10,21 +10,50 @@ object pepita {
 	}
 
 	method position() { //metodo necesario para wollok game
-		return game.center().up(2)
+		return position
 	}
 
 	method position(_position) { //el setter solo lo necesito para testear
 		position = _position 
 	}
 
+	 
+    method validarPosicion(posicion_){
+        if (not direcciones.estaEnElTablero(posicion_)) {
+            self.error("limite del tablero")
+        }
+    }
+     method moverIzq(){
+        const nuevaPosicion = position.left(1)
+        self.validarPosicion(nuevaPosicion)
+        position=nuevaPosicion
+    }
 
-	// method text() { //metodo opcional para mostrar un texto en wollok game
-	// 	return energia.toString()
-	// }
+    method moverDer(){
+        const nuevaPosicion = position.right(1)
+        self.validarPosicion(nuevaPosicion)
+        position=nuevaPosicion
 
-	// method textColor() { //metodo opcional para definir el color del texto (RGBA)
-	// 	return "FF0000FF"
-	// }
+    }
+       method moverAbajo(){
+        const nuevaPosicion = position.down(1)
+        self.validarPosicion(nuevaPosicion)
+        position=nuevaPosicion
+    }
+       method moverArriba(){
+        const nuevaPosicion = position.up(1)
+        self.validarPosicion(nuevaPosicion)
+        position=nuevaPosicion
+    }
+	/*
+	 method text() { //metodo opcional para mostrar un texto en wollok game
+	 	return energia.toString()
+	 }
+
+	 method textColor() { //metodo opcional para definir el color del texto (RGBA)
+	 	return "FF0000FF"
+	 }
+
 	
 	method volar(distancia) {
 		self.validarVolar(distancia)
@@ -51,6 +80,8 @@ object pepita {
 		self.volar(10) //asume que cada celda está a 10 km
 		position = nuevaPosition //ahora si puedo modificar la posicion
 	}
+	
+	*/
 
 }
 

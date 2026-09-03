@@ -1,6 +1,6 @@
 import pepita.*
 import alpiste.*
-
+import silvestre.*
 import direcciones.*
 import wollok.game.*
 
@@ -9,9 +9,12 @@ program PepitaGame {
 	game.height(10)
 	game.width(10)
 	game.boardGround("fondo2.jpg")
-
-	game.addVisual(pepita)
 	game.addVisual(alpiste)
+	game.addVisual(pepita)
+	game.addVisual(silvestre)
+	direcciones.movimientos(pepita)
+	
+	
 
 	// keyboard.left().onPressDo({ pepita.mover(izquierda)})
 	// keyboard.right().onPressDo({ pepita.mover(derecha)})
