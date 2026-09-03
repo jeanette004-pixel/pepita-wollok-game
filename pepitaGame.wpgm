@@ -1,5 +1,5 @@
 import pepita.*
-import alpiste.*
+import comidas.*
 import silvestre.*
 import direcciones.*
 import wollok.game.*

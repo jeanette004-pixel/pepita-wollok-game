@@ -1,5 +1,6 @@
 import game.*
-
+import pepita.*
+import comidas.*
 /*object tablero {
 
    
@@ -60,6 +61,7 @@ object direcciones{
             keyboard.right().onPressDo({personaje.moverDer()})
             keyboard.down().onPressDo({personaje.moverAbajo()})
             keyboard.up().onPressDo({personaje.moverArriba()})
+            keyboard.c().onPressDo({pepita.comer(game.uniqueCollider(pepita))})
 
     }
     method estaEnElTablero(posicion_){

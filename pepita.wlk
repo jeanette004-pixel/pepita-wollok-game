@@ -13,7 +13,7 @@ object pepita {
 			return "pepita.png"
 		}
 	}
-
+	 method text() = self.energia().toString()
 	method position() { //metodo necesario para wollok game
 		return position
 	}
@@ -97,11 +97,16 @@ object pepita {
 	method comer(comida){
 		if(self.position()==comida.position()){
 			self.adquirirEnergia(comida)
+			comida.borrar()
 		}
 	}
 
 	method adquirirEnergia(comida){
 		energia=energia + comida.energia()
 	}
+	
+	
 }
+
+
 
