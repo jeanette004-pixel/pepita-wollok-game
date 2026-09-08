@@ -2,27 +2,18 @@ import wollok.game.*
 
 object alpiste {
   
+  method energia(){
+    return 22
+  }
   method position() {
     return game.origin()
   }
-  method energia(){
-    return 10
-  }
+
   method image() {
     return "alpiste.png"
   } 
-
-}
-object manzana {
-  
-  method position() {
-    return game.at(2,4)
+  method borrar(){
+    game.removeVisual(self)
   }
-  method energia(){
-    return 20
-  }
-  method image() {
-    return "manzana.png"
-  } 
 
 }
