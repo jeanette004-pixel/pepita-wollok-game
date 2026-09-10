@@ -9,5 +9,7 @@ object silvestre {
 	method position() { //metodo necesario para wollok game
 		return game.at(pepita.position().x().max(3),0)
 	}
-
+	method teChocaron(){
+		game.stop()
+	}
 }

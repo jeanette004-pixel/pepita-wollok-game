@@ -1,19 +1,23 @@
 import wollok.game.*
 import direcciones.*
 import silvestre.*
+import obstaculos.*
 object pepita {
 
 	var property energia = 100 //El getter y setter solo lo necesito para testear
 	var position = game.origin()
 
 	method image() { //metodo necesario para wollok game
-		if(self.estaConSilvestre()|| self.estaCansada()){
+		if(self.perdio()){
 			return "pepita-gris.png"
 		}else{
 			return "pepita.png"
 		}
 	}
 
+	method perdio(){
+		return self.estaCansada() || self.estaConSilvestre() 
+	}
 	method estaCansada(){
 		return energia<1
 	}
@@ -31,10 +35,13 @@ object pepita {
 
 	method gastarEnergia(){
 		energia= energia - 9
+		if(energia<1){
+			game.stop()
+		}
 	}
 	 
     method validarPosicion(posicion_){
-        if (not direcciones.estaEnElTablero(posicion_)) {
+        if (not direcciones.estaEnElTablero(posicion_) || posicion_==muro.position()) {
             self.error("limite del tablero")
         }
     }

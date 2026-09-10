@@ -2,6 +2,7 @@ import pepita.*
 import comidas.*
 import silvestre.*
 import direcciones.*
+import obstaculos.*
 import wollok.game.*
 
 program PepitaGame {
@@ -11,8 +12,11 @@ program PepitaGame {
 	game.boardGround("fondo2.jpg")
 	game.addVisual(alpiste)
 	//game.addVisual(manzana)
+	game.addVisual(muro)
+	game.addVisual(nido)
 	game.addVisual(silvestre)
 	game.addVisual(pepita)
+	game.onCollideDo(pepita,{elemento=>elemento.teChocaron()})
 	direcciones.movimientos(pepita)
 	
 	

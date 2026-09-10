@@ -1,4 +1,5 @@
 import wollok.game.*
+import pepita.*
 
 object alpiste {
   
@@ -14,6 +15,9 @@ object alpiste {
   } 
   method borrar(){
     game.removeVisual(self)
+  }
+  method teChocaron(){
+    keyboard.c().onPressDo({pepita.comer(self)})
   }
 
 }
