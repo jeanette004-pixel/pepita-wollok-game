@@ -18,7 +18,7 @@ program PepitaGame {
 	game.addVisual(pepita)
 	game.onCollideDo(pepita,{elemento=>elemento.teChocaron()})
 	direcciones.movimientos(pepita)
-	
+	game.onTick(800, "gravedad", { pepita.caer() })
 	
 
 	// keyboard.left().onPressDo({ pepita.mover(izquierda)})

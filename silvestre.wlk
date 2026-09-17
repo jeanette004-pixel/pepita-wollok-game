@@ -10,6 +10,7 @@ object silvestre {
 		return game.at(pepita.position().x().max(3),0)
 	}
 	method teChocaron(){
+		game.say(pepita,"perdiste")
 		game.stop()
 	}
 }

@@ -36,6 +36,7 @@ object pepita {
 	method gastarEnergia(){
 		energia= energia - 9
 		if(energia<1){
+			game.say(self,"te quedaste sin energia")
 			game.stop()
 		}
 	}
@@ -65,6 +66,12 @@ object pepita {
 		self.gastarEnergia()
         position=nuevaPosicion
     }
+	   method caer(){
+		const nuevaPosicion = position.down(1)
+        self.validarPosicion(nuevaPosicion)
+        position=nuevaPosicion
+	   }
+
        method moverArriba(){
         const nuevaPosicion = position.up(1)
         self.validarPosicion(nuevaPosicion)
@@ -121,6 +128,8 @@ object pepita {
 	
 	
 }
+
+
 
 
 
